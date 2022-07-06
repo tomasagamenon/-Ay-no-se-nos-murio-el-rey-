@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad95fa269ed2bce4a9e6cad8323a8fe7, type: 3}
+  m_Name: Prueba
+  m_EditorClassIdentifier: 
+  eventName: Hola
+  eventDescription: Queria saludar nada mas. Toma, te regalo este oro.
+  decisions:
+  - decisionName: Gracias
+    resources:
+    - name: Gold
+      resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+      resource: 0
+      quantity: 10
+  - decisionName: Te vas a la carcel
+    resources:
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: -5
+  - decisionName: Cortenle la cabeza!
+    resources:
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: -10
+    - name: Faith
+      resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+      resource: 2
+      quantity: -10
+  - decisionName: Hagamos una fiesta entre tu...
+    resources:
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: -10
+    - name: Faith
+      resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+      resource: 2
+      quantity: -10
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: 20
+  - decisionName: No se que, 4 recursos
+    resources:
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: -10
+    - name: Faith
+      resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+      resource: 2
+      quantity: -10
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: 20
+    - name: Influence
+      resourcePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
+      resource: 5
+      quantity: 5
+  - decisionName: No se que, 5 recursos
+    resources:
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: -10
+    - name: Faith
+      resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+      resource: 2
+      quantity: -10
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: 20
+    - name: Influence
+      resourcePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
+      resource: 5
+      quantity: 5
+    - name: Salary
+      resourcePrefab: {fileID: 4874139950685124760, guid: 2d0f7b3038daa1549adf2f01cae26957, type: 3}
+      resource: 6
+      quantity: 2

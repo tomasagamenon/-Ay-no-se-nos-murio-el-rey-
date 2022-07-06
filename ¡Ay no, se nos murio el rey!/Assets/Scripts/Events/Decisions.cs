@@ -7,5 +7,5 @@ using System;
 public class Decisions
 {
     public string decisionName;
-
+    public Resource[] resources;
 }

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e28deff9830672848bdcad44fbb4a691
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - goldPrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+  - foodPrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+  - faithPrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+  - peoplePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+  - armyPrefab: {fileID: 4478027479878120483, guid: 25c0dfbef3e274c41b4f3af2081382a6, type: 3}
+  - salaryPrefab: {fileID: 4874139950685124760, guid: 2d0f7b3038daa1549adf2f01cae26957, type: 3}
+  - influencePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
