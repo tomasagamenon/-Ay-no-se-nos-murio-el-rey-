@@ -4,6 +4,8 @@ public class ResourcesManager : MonoBehaviour
 {
     private MainUI _resourcesUI;
     public GameObject perdiste;
+    //Los siguientes recursos, al modificarlos, llaman al metodo que actualiza la Ui
+    //quizas se pueda mejorar y probablemente tenga que cambiarse
     public int Gold
     {
         get { return _gold; }
@@ -93,15 +95,84 @@ public class ResourcesManager : MonoBehaviour
     private void Awake()
     {
         _resourcesUI = GameObject.Find("Canvas").GetComponent<MainUI>();
-        Gold = 200;
-        Food = 200;
-        Faith = 200;
-        People = 200;
-        Army = 200;
-        Influence = 25;
-        TotalSalary = 22;
+        Gold = 50;
+        Food = 50;
+        Faith = 50;
+        People = 50;
+        Army = 50;
+        Influence = 15;
+        TotalSalary = 12;
         FreeSalary = TotalSalary;
     }
+    public void ModifyResource(Resource.ResourceType resourceType, int quantity)
+    {
+        //estoy seguro de que debe haber un metodo mejor que el switch
+        //para determinar que recurso es, pero no lo se
+        switch (resourceType)
+        {
+            case Resource.ResourceType.Gold:
+                Gold += quantity;
+                break;
+            case Resource.ResourceType.Food:
+                Food += quantity;
+                break;
+            case Resource.ResourceType.Faith:
+                Faith += quantity;
+                break;
+            case Resource.ResourceType.People:
+                People += quantity;
+                break;
+            case Resource.ResourceType.Army:
+                Army += quantity;
+                break;
+            case Resource.ResourceType.Influence:
+                Influence += quantity;
+                break;
+            case Resource.ResourceType.Salary:
+                FreeSalary += quantity;
+                break;
+            default:
+                break;
+        }
+    }
+    public bool ResourceAvaiability(Resource.ResourceType resourceType, int quantity)
+    {
+        switch (resourceType)
+        {
+            case Resource.ResourceType.Gold:
+                if (Gold < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.Food:
+                if (Food < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.Faith:
+                if (Faith < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.People:
+                if (People < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.Army:
+                if (Army < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.Influence:
+                if (Influence < -quantity)
+                    return false;
+                break;
+            case Resource.ResourceType.Salary:
+                if (FreeSalary < -quantity)
+                    return false;
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+    //Los siguientes modify son temporales, para usar con los botones de mierda nomas
     public void ModifyGold(int quantity)
     {
         Gold += quantity;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -8,4 +6,6 @@ public class Decisions
 {
     public string decisionName;
     public Resource[] resources;
+    [HideInInspector]
+    public bool isAffordable;
 }

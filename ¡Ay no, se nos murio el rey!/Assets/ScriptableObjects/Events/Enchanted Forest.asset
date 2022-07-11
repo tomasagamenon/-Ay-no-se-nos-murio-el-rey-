@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad95fa269ed2bce4a9e6cad8323a8fe7, type: 3}
+  m_Name: Enchanted Forest
+  m_EditorClassIdentifier: 
+  eventName: Enchanted Forest
+  eventDescription: 'Counselor, peasants of the city outskirts have been reporting
+    people dissapearing near the Black Forest, and the rumors of great beasts and
+    dark magic are rampant.
+
+    They expect from you to give them security, or some
+    kind of retribution...
+
+    Else, they might stop giving you their taxes.'
+  decisions:
+  - decisionName: Send a patrol!
+    resources:
+    - name: Army
+      resourcePrefab: {fileID: 4478027479878120483, guid: 25c0dfbef3e274c41b4f3af2081382a6, type: 3}
+      resource: 4
+      quantity: -10
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: 5
+    isAffordable: 0
+  - decisionName: A gift to cease their spirit
+    resources:
+    - name: Gold
+      resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+      resource: 0
+      quantity: -10
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: 5
+    isAffordable: 0
+  - decisionName: No more than folks stories
+    resources:
+    - name: Gold
+      resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+      resource: 0
+      quantity: -5
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: -5
+    isAffordable: 0
+  - decisionName: Dark magic!? Burn that forest!
+    resources:
+    - name: People
+      resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
+      resource: 3
+      quantity: -5
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: -10
+    - name: Faith
+      resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
+      resource: 2
+      quantity: 10
+    isAffordable: 0
