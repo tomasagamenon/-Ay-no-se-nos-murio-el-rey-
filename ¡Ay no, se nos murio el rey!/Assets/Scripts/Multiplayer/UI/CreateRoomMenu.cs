@@ -16,6 +16,10 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
 
     private RoomsCanvases _roomsCanvases;
 
+    [SerializeField]
+    private TMP_Text _currentRoomName;
+
+
     public void FirstInitialize(RoomsCanvases canvases)
     {
         _roomsCanvases = canvases;
@@ -25,12 +29,11 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
     {
         if (!PhotonNetwork.IsConnected)
             return;
+        _currentRoomName.text = _roomName.text;
         RoomOptions options = new RoomOptions();
         options.MaxPlayers = (byte)_maxPlayers;
         options.PlayerTtl = _waitPlayer;
         options.IsVisible = true;
-        if (_roomName.text.Length < 1)
-            return;
         PhotonNetwork.JoinOrCreateRoom(_roomName.text, options, TypedLobby.Default);
     }
 
