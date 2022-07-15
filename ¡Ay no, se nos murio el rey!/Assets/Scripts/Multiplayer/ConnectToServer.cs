@@ -27,6 +27,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         MasterManager.GameSettings._nickName = _roomName.text;
         PhotonNetwork.NickName = MasterManager.GameSettings.NickName;
         PhotonNetwork.GameVersion = MasterManager.GameSettings.GameVersion;
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
     }
 
