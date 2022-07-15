@@ -12,29 +12,42 @@ public class RoomListingsMenu : MonoBehaviourPunCallbacks
     private RoomListing _roomListing;
 
     private List<RoomListing> _listings = new List<RoomListing>();
+    private RoomsCanvases _roomsCanvases;
+
+    public float timeBetweenUpdates;
+    private float _nextUpdate;
+
+    public void FirstInitialize(RoomsCanvases canvases)
+    {
+        _roomsCanvases = canvases;
+    }
+
+    public override void OnJoinedRoom()
+    {
+        _roomsCanvases.CurrentRoomCanvas.Show();
+    }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (RoomInfo info in roomList)
+        if(Time.time >= _nextUpdate)
         {
-            if (info.RemovedFromList)
-            {
-                int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
-                if(index != -1)
-                {
-                    Destroy(_listings[index].gameObject);
-                    _listings.RemoveAt(index);
-                }
-            }
-            else
-            {
-                RoomListing listing = Instantiate(_roomListing, _content);
-                if (listing != null)
-                {
-                    listing.SetRoomInfo(info);
-                    _listings.Add(listing);
-                }
-            }
+            UpdateRoomList(roomList);
+            _nextUpdate = Time.time + timeBetweenUpdates;
+        }
+    }
+
+    private void UpdateRoomList(List<RoomInfo> list)
+    {
+        foreach(RoomListing roomListing in _listings)
+        {
+            Destroy(roomListing.gameObject);
+        }
+        _listings.Clear();
+        foreach(RoomInfo room in list)
+        {
+            RoomListing newRoom = Instantiate(_roomListing, _content);
+            newRoom.SetRoomInfo(room);
+            _listings.Add(newRoom);
         }
     }
 }
