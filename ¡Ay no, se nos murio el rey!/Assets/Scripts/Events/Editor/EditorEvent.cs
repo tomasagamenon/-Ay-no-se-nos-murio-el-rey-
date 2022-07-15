@@ -13,6 +13,8 @@ public class EditorEvent : Editor
     public GameObject armyPrefab;
     public GameObject salaryPrefab;
     public GameObject influencePrefab;
+
+    public GameObject defaultPetitioner;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -49,6 +51,10 @@ public class EditorEvent : Editor
                         break;
                 }
             }
+        }
+        if(_event.petitioner == null)
+        {
+            _event.petitioner = defaultPetitioner;
         }
     }
 }

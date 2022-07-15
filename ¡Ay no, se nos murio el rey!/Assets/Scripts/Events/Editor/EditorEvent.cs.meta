@@ -11,6 +11,7 @@ MonoImporter:
   - armyPrefab: {fileID: 4478027479878120483, guid: 25c0dfbef3e274c41b4f3af2081382a6, type: 3}
   - salaryPrefab: {fileID: 4874139950685124760, guid: 2d0f7b3038daa1549adf2f01cae26957, type: 3}
   - influencePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
+  - defaultPetitioner: {fileID: 6846617012323761520, guid: 0663229305a5477439f1cbe12c158500, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

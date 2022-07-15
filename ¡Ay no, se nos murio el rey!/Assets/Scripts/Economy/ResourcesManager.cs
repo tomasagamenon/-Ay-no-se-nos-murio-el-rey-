@@ -3,6 +3,7 @@ using UnityEngine;
 public class ResourcesManager : MonoBehaviour
 {
     private MainUI _resourcesUI;
+    private EventUI _eventUI;
     public GameObject perdiste;
     //Los siguientes recursos, al modificarlos, llaman al metodo que actualiza la Ui
     //quizas se pueda mejorar y probablemente tenga que cambiarse
@@ -13,7 +14,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _gold = value;
             if (_gold <= 0) Perdiste();
-            _resourcesUI.UpdateResources(nameof(Gold), _gold);
+            _resourcesUI.UpdateResources(Resource.ResourceType.Gold, _gold);
         }
     }
     private int _gold;
@@ -24,7 +25,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _food = value;
             if (_food <= 0) Perdiste();
-            _resourcesUI.UpdateResources(nameof(Food), _food);
+            _resourcesUI.UpdateResources(Resource.ResourceType.Food, _food);
         }
     }
     private int _food;
@@ -35,7 +36,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _faith = value;
             if (_faith <= 0) Perdiste();
-            _resourcesUI.UpdateResources(nameof(Faith), _faith);
+            _resourcesUI.UpdateResources(Resource.ResourceType.Faith, _faith);
         }
     }
     private int _faith;
@@ -46,7 +47,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _people = value;
             if (_people <= 0) Perdiste();
-            _resourcesUI.UpdateResources(nameof(People), _people);
+            _resourcesUI.UpdateResources(Resource.ResourceType.People, _people);
         }
     }
     private int _people;
@@ -57,7 +58,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _army = value;
             if (_army <= 0) Perdiste();
-            _resourcesUI.UpdateResources(nameof(Army), _army);
+            _resourcesUI.UpdateResources(Resource.ResourceType.Army, _army);
         }
     }
     private int _army;
@@ -68,7 +69,7 @@ public class ResourcesManager : MonoBehaviour
         {
             _influence = value;
 
-            _resourcesUI.UpdateResources(nameof(Influence), _influence);
+            _resourcesUI.UpdateResources(Resource.ResourceType.Influence, _influence);
         }
     }
     private int _influence;
@@ -95,6 +96,7 @@ public class ResourcesManager : MonoBehaviour
     private void Awake()
     {
         _resourcesUI = GameObject.Find("Canvas").GetComponent<MainUI>();
+        _eventUI = GameObject.Find("EventUI").GetComponent<EventUI>();
         Gold = 50;
         Food = 50;
         Faith = 50;
@@ -106,8 +108,8 @@ public class ResourcesManager : MonoBehaviour
     }
     public void ModifyResource(Resource.ResourceType resourceType, int quantity)
     {
-        //estoy seguro de que debe haber un metodo mejor que el switch
-        //para determinar que recurso es, pero no lo se
+        // Estoy seguro de que debe haber un metodo mejor que el switch
+        // para determinar que recurso es, pero no lo se
         switch (resourceType)
         {
             case Resource.ResourceType.Gold:
@@ -134,9 +136,12 @@ public class ResourcesManager : MonoBehaviour
             default:
                 break;
         }
+        // Avisa a los eventos que revisen si ya no alcanzan los recursos
+        _eventUI.CheckResources();
     }
     public bool ResourceAvaiability(Resource.ResourceType resourceType, int quantity)
     {
+        // Aguante los switch vieja, no me importa nada B)
         switch (resourceType)
         {
             case Resource.ResourceType.Gold:
@@ -171,42 +176,6 @@ public class ResourcesManager : MonoBehaviour
                 break;
         }
         return true;
-    }
-    //Los siguientes modify son temporales, para usar con los botones de mierda nomas
-    public void ModifyGold(int quantity)
-    {
-        Gold += quantity;
-    }
-    public void ModifyFood(int quantity)
-    {
-        Food += quantity;
-    }
-    public void ModifyFaith(int quantity)
-    {
-        Faith += quantity;
-    }
-    public void ModifyPeople(int quantity)
-    {
-        People += quantity;
-    }
-    public void ModifyArmy(int quantity)
-    {
-        Army += quantity;
-    }
-    public void ModifyInfluence(int quantity)
-    {
-        Influence += quantity;
-    }
-    public void ModifySalary(int quantity)
-    {
-        if(quantity < 0 && FreeSalary < -quantity)
-        {
-            _resourcesUI.Messager("No tenes guita para eso flaco.");
-        }
-        else
-        {
-            FreeSalary += quantity;
-        }
     }
     private void Perdiste()
     {

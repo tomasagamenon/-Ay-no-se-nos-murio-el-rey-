@@ -6,5 +6,6 @@ public class Event : ScriptableObject
     public string eventName;
     [TextArea(1, 4)]
     public string eventDescription;
+    public GameObject petitioner;
     public Decisions[] decisions;
 }

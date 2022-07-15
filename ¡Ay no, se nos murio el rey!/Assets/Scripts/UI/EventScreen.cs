@@ -18,6 +18,7 @@ public class EventScreen : MonoBehaviour
             buttons[i].interactable = _eventManager.DecisionAvaiable(decisions[i]);
         }
     }
+    // Una vez se toma UNA decision, todas las demas chau
     public void DisableButtons()
     {
         foreach(Button button in buttons)
