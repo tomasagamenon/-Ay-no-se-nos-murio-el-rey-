@@ -54,7 +54,7 @@ public class EditorEvent : Editor
         }
         if(_event.petitioner == null)
         {
-            _event.petitioner = defaultPetitioner;
+            //_event.petitioner = defaultPetitioner;
         }
     }
 }

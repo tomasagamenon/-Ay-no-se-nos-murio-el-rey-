@@ -15,7 +15,7 @@ public class EventManager : MonoBehaviour
     {
         _eventUI = GameObject.Find("EventUI").GetComponent<EventUI>();
         _resourcesManager = GameObject.Find("EconomyManager").GetComponent<ResourcesManager>();
-        _petitionerManager = GameObject.Find("PetitionManager").GetComponent<PetitionerManager>();
+        _petitionerManager = GameObject.Find("PetitionerManager").GetComponent<PetitionerManager>();
         CreateEventBag();
     }
     private void Start()
@@ -32,7 +32,7 @@ public class EventManager : MonoBehaviour
         {
             int randNum = uniqueNumbers[Random.Range(0, uniqueNumbers.Count)];
             _eventsBag.Add(totalEvents[randNum]);
-            //_petitionerManager.CreatePetitioner(_eventsBag[_eventsBag.Count - 1].petitioner);
+            _petitionerManager.CreatePetitioner(_eventsBag[0].petitioner);
             uniqueNumbers.Remove(randNum);
         }
     }
@@ -40,12 +40,17 @@ public class EventManager : MonoBehaviour
     public void SendEvent()
     {
         // Despues el manejo de que eventos van a llegar cada turno va a manejarlo la ia especifica
-        if(_eventsBag.Count != 0)
-        {
-            Event thisEvent = _eventsBag[Random.Range(0, _eventsBag.Count)];
-            _eventsBag.Remove(thisEvent);
-            _eventUI.CreateEvent(thisEvent.eventName, thisEvent.eventDescription, thisEvent.decisions);
-        }
+        //if(_eventsBag.Count != 0)
+        //{
+        //    Event thisEvent = _eventsBag[Random.Range(0, _eventsBag.Count)];
+        //    _eventsBag.Remove(thisEvent);
+        //    _petitionerManager.CreatePetitioner(thisEvent.petitioner);
+        //    _eventUI.CreateEvent(thisEvent.eventName, thisEvent.eventDescription, thisEvent.decisions);
+        //}
+        Event _event = _eventsBag[0];
+        _eventsBag.Remove(_event);
+        //_petitionerManager.CreatePetitioner(_event.petitioner);
+        _eventUI.CreateEvent(_event.eventName, _event.eventDescription, _event.decisions);
     }
     public bool DecisionAvaiable(Decisions decision)
     {
@@ -68,7 +73,10 @@ public class EventManager : MonoBehaviour
             _resourcesManager.ModifyResource(resource.resource, resource.quantity);
         }
         // Mandar al peticionario de vuelta y habilitar la peticion del siguiente
-        //_petitionerManager.AdvancePlace();
-        SendEvent();
+        _petitionerManager.AdvancePlace();
+        if (_eventsBag.Count != 0)
+            SendEvent();
+        else
+            Debug.Log("Se terminaron los eventos, ahora a dormir.");
     }
 }

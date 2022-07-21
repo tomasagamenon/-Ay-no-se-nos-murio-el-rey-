@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: aaa 2
   eventDescription: relleno
+  petitioner: {fileID: 6303252421742708300, guid: 1174650fa834d6944a18e5c9cc0159ec, type: 3}
   decisions:
   - decisionName: asdf
     resources:

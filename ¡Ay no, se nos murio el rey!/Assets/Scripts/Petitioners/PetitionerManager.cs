@@ -7,28 +7,27 @@ public class PetitionerManager : MonoBehaviour
     public Transform spawnPosition;
     public List<GameObject> petitioners = new List<GameObject>();
     public Transform[] queuePoints;
-    bool a = false;
+
     public void CreatePetitioner(GameObject petitioner)
     {
-        GameObject thisPetitioner = Instantiate(petitioner, transform.position, transform.rotation);
-        thisPetitioner.GetComponent<PetitionerMovement>().GiveNextPosition(spawnPosition.position);
+        GameObject thisPetitioner = Instantiate(petitioner, spawnPosition.position, transform.rotation);
         petitioners.Add(thisPetitioner);
+        if(petitioners.Count <= queuePoints.Length)
+        {
+            thisPetitioner.GetComponent<Petitioner>().GiveNextPosition(queuePoints[petitioners.Count - 1].position);
+        }
+        thisPetitioner.GetComponent<Petitioner>()._petitionerManager = this;
         //armar al wachin que se va a acercar segun el evento que sea, supongo
     }
     public void AdvancePlace()
     {
-        if(petitioners.Count != 0)
+        petitioners[0].GetComponent<Petitioner>().GiveNextPosition(spawnPosition.position);
+        petitioners.Remove(petitioners[0]);
+        if (petitioners.Count > 0)
         {
-            if (!a)
+            for (int i = 0; i < queuePoints.Length && i < petitioners.Count; i++)
             {
-                petitioners[100000].GetComponent<PetitionerMovement>().GiveNextPosition(queuePoints[0].position);
-                a = true;
-            }
-            else
-            {
-                petitioners[petitioners.Count].GetComponent<PetitionerMovement>().GiveNextPosition(spawnPosition.position);
-                petitioners.RemoveAt(petitioners.Count);
-                petitioners[petitioners.Count].GetComponent<PetitionerMovement>().GiveNextPosition(queuePoints[0].position);
+                petitioners[i].GetComponent<Petitioner>().GiveNextPosition(queuePoints[i].position);
             }
         }
         //petitioners[petitioners.Count - 1].GetComponent<PetitionerMovement>().GiveNextPosition(spawnPosition.position);
