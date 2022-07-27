@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Petitioner : MonoBehaviour
 {
@@ -29,8 +30,11 @@ public class Petitioner : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if(eventScreen != null)
-            _eventUI.ToggleEventWindow(eventScreen);
-        Debug.Log("Ah, me tocaste wey");
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if(eventScreen != null)
+                _eventUI.ToggleEventWindow(eventScreen);
+            Debug.Log("Ah, me tocaste wey");
+        }
     }
 }
