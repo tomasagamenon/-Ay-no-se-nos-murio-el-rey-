@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: Hola
   eventDescription: Queria saludar nada mas. Toma, te regalo este oro.
+  petitioner: {fileID: 6846617012323761520, guid: 0663229305a5477439f1cbe12c158500, type: 3}
   decisions:
   - decisionName: Gracias
     resources:
@@ -21,12 +22,14 @@ MonoBehaviour:
       resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
       resource: 0
       quantity: 10
+    isAffordable: 0
   - decisionName: Te vas a la carcel
     resources:
     - name: People
       resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
       resource: 3
       quantity: -5
+    isAffordable: 0
   - decisionName: Cortenle la cabeza!
     resources:
     - name: People
@@ -37,6 +40,7 @@ MonoBehaviour:
       resourcePrefab: {fileID: 3239073331366846396, guid: 6b2ae74c02971b64d8979943a9cf7391, type: 3}
       resource: 2
       quantity: -10
+    isAffordable: 0
   - decisionName: Hagamos una fiesta entre tu...
     resources:
     - name: Food
@@ -51,6 +55,7 @@ MonoBehaviour:
       resourcePrefab: {fileID: 6645671742602010597, guid: 9f6b916e5376c0845bb18e562d64c914, type: 3}
       resource: 3
       quantity: 20
+    isAffordable: 0
   - decisionName: No se que, 4 recursos
     resources:
     - name: Food
@@ -69,6 +74,7 @@ MonoBehaviour:
       resourcePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
       resource: 5
       quantity: 5
+    isAffordable: 0
   - decisionName: No se que, 5 recursos
     resources:
     - name: Food
@@ -91,3 +97,4 @@ MonoBehaviour:
       resourcePrefab: {fileID: 4874139950685124760, guid: 2d0f7b3038daa1549adf2f01cae26957, type: 3}
       resource: 6
       quantity: 2
+    isAffordable: 0

@@ -26,7 +26,7 @@ public class EventUI : MonoBehaviour
     // y sus recursos especificos, ademas de asignarle la funcion al boton directamente
     // QUIZAS se pueda separar el contenido en mas funciones, para que este mas ordenado,
     // pero para eso lo tengo que leer xD
-    public void CreateEvent(string name, string description, Decisions[] decisions)
+    public GameObject CreateEvent(string name, string description, Decisions[] decisions)
     {
         // Crea la ventana de evento, su preview, se toma su script y su boton
         GameObject eventScreen = Instantiate(eventPrefab, eventWindow);
@@ -71,6 +71,7 @@ public class EventUI : MonoBehaviour
         _eventScreenScript.decisions = decisions;
         _eventScreenScript.buttons = buttons.ToArray();
         eventScreen.gameObject.SetActive(false);
+        return eventScreen;
     }
     // Manejo de abrir los eventos segun los botones del preview
     public void ToggleEventWindow()

@@ -21,6 +21,7 @@ MonoBehaviour:
     kind of retribution...
 
     Else, they might stop giving you their taxes.'
+  petitioner: {fileID: 6846617012323761520, guid: 0663229305a5477439f1cbe12c158500, type: 3}
   decisions:
   - decisionName: Send a patrol!
     resources:

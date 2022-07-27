@@ -30,13 +30,10 @@ public class PetitionerManager : MonoBehaviour
                 petitioners[i].GetComponent<Petitioner>().GiveNextPosition(queuePoints[i].position);
             }
         }
-        //petitioners[petitioners.Count - 1].GetComponent<PetitionerMovement>().GiveNextPosition(spawnPosition.position);
-        //petitioners.RemoveAt(petitioners.Count - 1);
-        //for (int i = 0; i < petitioners.Count; i++)
-        //{
-        //    if(i < queuePoints.Length)
-        //        petitioners[petitioners.Count].GetComponent<PetitionerMovement>().GiveNextPosition(queuePoints[i].position);
-        //}
+    }
+    public void GiveEventTab(GameObject eventTab)
+    {
+        petitioners[0].GetComponent<Petitioner>().eventScreen = eventTab;
     }
     // el ultimo se saca de la lista y se manda al primero al siguiente lugar?
     // Funcion que haga que el peticionario con el evento resuelto de la vuelta
