@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad95fa269ed2bce4a9e6cad8323a8fe7, type: 3}
+  m_Name: ES_J_01
+  m_EditorClassIdentifier: 
+  eventName: Cultivos
+  eventDescription: Traigo malas noticias, los cultivos de esta temporada no estan
+    dando resultado
+  decisions:
+  - decisionName: No puedo hacer nada
+    resources:
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: -15
+    isAffordable: 0
+  - decisionName: Compremos alimentos
+    resources:
+    - name: Gold
+      resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+      resource: 0
+      quantity: -20
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: 10
+    isAffordable: 0
+  - decisionName: Yo ayudo
+    resources:
+    - name: Gold
+      resourcePrefab: {fileID: 1873941477762249661, guid: ecec65edcf2643c40800a8ecaa6c864d, type: 3}
+      resource: 0
+      quantity: -5
+    - name: Food
+      resourcePrefab: {fileID: 154648671535560760, guid: 726fd996e1edd0b469e9195dd76c4e63, type: 3}
+      resource: 1
+      quantity: 10
+    - name: Influence
+      resourcePrefab: {fileID: 1302002294233854906, guid: f889bc176e9db0c488c0ccf863a1045f, type: 3}
+      resource: 5
+      quantity: 5
+    - name: Salary
+      resourcePrefab: {fileID: 4874139950685124760, guid: 2d0f7b3038daa1549adf2f01cae26957, type: 3}
+      resource: 6
+      quantity: -5
+    isAffordable: 0
